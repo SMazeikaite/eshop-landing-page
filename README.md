@@ -1,1 +1,1 @@
-# e-shop-landing-page
+# e-shop landing page
