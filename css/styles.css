@@ -1,0 +1,56 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box
+}
+
+.carousel {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+    pointer-events: none;
+}
+
+.slide.visible {
+    display: block;
+    pointer-events: all;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.previous-slide,
+.next-slide {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next-slide {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.previous-slide:hover,
+.next-slide:hover {
+    /* todo */
+    background-color: rgb(207, 63, 87);
+    color: black;
+}
