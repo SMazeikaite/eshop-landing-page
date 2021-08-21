@@ -15,12 +15,14 @@ body {
 
 .slide {
     display: none;
-    pointer-events: none;
+    position: relative;
+    text-align: center;
 }
 
 .slide.visible {
     display: block;
     pointer-events: all;
+    cursor: pointer;
 }
 
 img {
@@ -41,6 +43,7 @@ img {
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
+    z-index: 10;
 }
 
 .next-slide {
@@ -50,7 +53,20 @@ img {
 
 .previous-slide:hover,
 .next-slide:hover {
-    /* todo */
-    background-color: rgb(207, 63, 87);
-    color: black;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.slide-title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 5px;
+    pointer-events: auto;
+    text-decoration: none;
+    font-weight: 600;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
