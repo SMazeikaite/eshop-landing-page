@@ -1,14 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.white-10-color {
+    color: rgb(201, 201, 201)
+}
+
+.main-color {
+    color: #cbeb6d;
+}
+
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
-}
-
-* {
-    box-sizing: border-box
+    height: 100vh;
 }
 
 .carousel {
-    max-width: 1000px;
+    max-width: 1100px;
     position: relative;
     margin: auto;
 }
@@ -27,6 +36,8 @@ body {
 
 img {
     vertical-align: middle;
+    object-fit: cover;
+    max-height: 577px;
 }
 
 .previous-slide,
@@ -40,7 +51,6 @@ img {
     color: white;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
     z-index: 10;
@@ -54,6 +64,8 @@ img {
 .previous-slide:hover,
 .next-slide:hover {
     background-color: rgba(0, 0, 0, 0.6);
+    color: rgb(233, 255, 181);
+    transition: 0.6s ease;
 }
 
 .slide-title {
@@ -69,4 +81,53 @@ img {
     content: "";
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
+}
+
+
+/*  NAVIGATION BAR */
+
+nav {
+    margin-bottom: 1%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    text-align: right;
+}
+
+.logo {
+    float: left;
+}
+
+.logo img {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+    height: 48px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+nav li {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+nav li a {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+    background-color: #111;
+}
+
+nav .active {
+    background-color: #ff5353;
+    color: black;
 }
