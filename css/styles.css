@@ -131,3 +131,18 @@ nav .active {
     background-color: #ff5353;
     color: black;
 }
+
+/* Products grid */
+
+.grid { 
+    display: grid;
+    grid-template-columns: repeat(6, 500px);
+    grid-gap: 20px;
+    /* align-items: stretch; */
+    }
+
+  .grid img {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    max-width: 100%;
+  }
