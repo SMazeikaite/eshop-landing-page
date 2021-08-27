@@ -2,19 +2,21 @@
 
 const container = document.querySelector('.slides-container');
 
-const renderSlides = async () => {
+const renderSlides = async() => {
     let uri = 'http://localhost:3000/slides'
 
     const slides = await fetch(uri).then(res => res.json());
-    
+
     let template = '';
-    slides.forEach(slide => {
+    slides.forEach((slide, index) => {
         template += `
-            <div class="${slide.id === 1 ? 'slide visible' : 'slide'}">
-                <img src="${slide.imageUrl}" style="width:100%" alt="slide${slide.id}" />
+            <div class="${index === 0 ? 'slide visible' : 'slide'}">
+                <img src="${slide.imageUrl}" style="width:100%" alt="slide of ${slide.title}"/>
                 <a href="#" class="slide-title">
-                    <span class="main-color">${slide.productType}</span>
-                    <span class="white-10-color">|</span> ${slide.title}
+                    <figcaption>
+                        <span class="main-color">${slide.productType}</span>
+                        <span class="white-10-color">|</span> ${slide.title}
+                    </figcaption>
                 </a>
             </div>
         `

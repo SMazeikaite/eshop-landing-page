@@ -70,17 +70,24 @@ img {
 
 .slide-title {
     position: absolute;
-    left: 0;
+    top: 0;
     right: 0;
     bottom: 0;
+    left: 0;
     z-index: 1;
-    padding: 5px;
     pointer-events: auto;
     text-decoration: none;
     font-weight: 600;
     content: "";
-    background-color: rgba(0, 0, 0, 0.5);
     color: white;
+}
+
+.slide-title figcaption {
+    position: inherit;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    width: 100%;
 }
 
 
@@ -91,10 +98,8 @@ nav {
 }
 
 nav ul {
-    list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     background-color: #333;
     text-align: right;
 }
@@ -113,7 +118,6 @@ nav ul {
 
 nav li {
     display: inline-flex;
-    flex-direction: row;
 }
 
 nav li a {
@@ -132,17 +136,18 @@ nav .active {
     color: black;
 }
 
+
 /* Products grid */
 
-.grid { 
+.grid {
     display: grid;
     grid-template-columns: repeat(6, 500px);
     grid-gap: 20px;
     /* align-items: stretch; */
-    }
+}
 
-  .grid img {
+.grid img {
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
     max-width: 100%;
-  }
+}
