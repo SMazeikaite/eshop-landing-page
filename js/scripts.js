@@ -1,15 +1,15 @@
 'use strict'
 
-const container = document.querySelector('.slides-container');
+const slidesContainer = document.querySelector('.slides-container');
+const shopContainer = document.querySelector('.grid');
 
 const renderSlides = async() => {
     let uri = 'http://localhost:3000/slides'
-
     const slides = await fetch(uri).then(res => res.json());
+    let slidesTemplate = '';
 
-    let template = '';
     slides.forEach((slide, index) => {
-        template += `
+        slidesTemplate += `
             <div class="${index === 0 ? 'slide visible' : 'slide'}">
                 <img src="${slide.imageUrl}" style="width:100%" alt="slide of ${slide.title}"/>
                 <a href="#" class="slide-title">
@@ -21,12 +21,30 @@ const renderSlides = async() => {
             </div>
         `
     });
+    slidesContainer.innerHTML = slidesTemplate;
+}
 
-    container.innerHTML = template;
+const renderShop = async() => {
+    let uri = 'http://localhost:3000/products'
+    const shop = await fetch(uri).then(res => res.json());
+    let shopTemplate = '';
+
+    shop.forEach((product, index) => {
+        shopTemplate += `
+            <figure>
+                <img src="${product.imageUrl}" alt="Image of ${product.title}">
+                <figcaption><strong>${product.title}</strong></figcaption>
+            </figure>
+        `
+    });
+    shopContainer.innerHTML = shopTemplate;
 }
 
 // don't want to pass event object so using arrow function (15:50 tut)
-window.addEventListener('DOMContentLoaded', () => renderSlides());
+window.addEventListener('DOMContentLoaded', () => {
+    renderSlides();
+    renderShop();
+});
 
 const previousSlideBtn = document.getElementsByClassName('previous-slide')[0];
 const nextSlideBtn = document.getElementsByClassName('next-slide')[0];
