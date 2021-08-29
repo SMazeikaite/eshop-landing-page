@@ -23,8 +23,37 @@
         <a class="next-slide">&#10097;</a>
     </div>
 
+    <div class="shop-item-toolbar">
+        <button class="btn btn-add" onclick="openModal(true)"> Add item</button>
+        <button onclick="onSortClick('price')"> Sort by price 🠗 </button>
+    </div>
     <main class="grid"></main>
 
+    <div id="modal" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 class="text-center">Add new item:</h3>
+        <form>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+
+            <label for="imageUrl">Image URL:</label><br>
+            <input type="text" id="imageUrl" name="imageUrl"><br>
+
+            <label for="price">Price:</label><br>
+            <input type="number" id="price" name="price"><br><br>
+
+            <div>
+                <label for="featured">Feature in carousel:</label>
+                <input type="checkbox" id="featured" name="featured">
+            </div>
+
+            <button class="btn btn-add center" type="submit">Submit</button>
+          </form> 
+        </div>
+    
+    </div>
+  
     <script src="./js/scripts.js"></script>
 </body>
 

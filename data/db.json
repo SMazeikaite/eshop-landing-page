@@ -1,70 +1,62 @@
 {
-    "slides": [{
-            "id": 0,
-            "title": "GeForce RTX 2070",
-            "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
-            "productType": "SALE"
-        },
-        {
-            "id": 1,
-            "title": "GeForce RTX 3080 Ti",
-            "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
-            "productType": "IN STOCK"
-        },
-        {
-            "id": 2,
-            "title": "AMD Radeon RX 5500",
-            "imageUrl": "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/04/AMD-Radeon-RX-5500-Blogroll.jpg",
-            "productType": "TOP"
-        }
-    ],
-    "products": [{
-            "id": 0,
-            "title": "Item 1",
-            "imageUrl": "https://www.geninstitute.lt/wp-content/uploads/2020/02/placeholder.png",
-            "price": 499
-        },
-        {
-            "id": 1,
-            "title": "Item 2",
-            "imageUrl": "https://www.geninstitute.lt/wp-content/uploads/2020/02/placeholder.png",
-            "price": 499
-        },
-        {
-            "id": 2,
-            "title": "Item 2",
-            "imageUrl": "https://www.geninstitute.lt/wp-content/uploads/2020/02/placeholder.png",
-            "price": 499
-        },
-        {
-            "id": 3,
-            "title": "Item 3",
-            "imageUrl": "https://www.geninstitute.lt/wp-content/uploads/2020/02/placeholder.png",
-            "price": 499
-        },
-        {
-            "id": 4,
-            "title": "Item 4",
-            "imageUrl": "https://www.geninstitute.lt/wp-content/uploads/2020/02/placeholder.png",
-            "price": 499
-        },
-        {
-            "id": 5,
-            "title": "Item 5",
-            "imageUrl": "https://www.geninstitute.lt/wp-content/uploads/2020/02/placeholder.png",
-            "price": 499
-        },
-        {
-            "id": 6,
-            "title": "Item 6",
-            "imageUrl": "https://www.geninstitute.lt/wp-content/uploads/2020/02/placeholder.png",
-            "price": 499
-        },
-        {
-            "id": 7,
-            "title": "Item 7",
-            "imageUrl": "https://www.geninstitute.lt/wp-content/uploads/2020/02/placeholder.png",
-            "price": 499
-        }
-    ]
+  "products": [
+    {
+      "title": "Testas7901",
+      "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
+      "price": "109",
+      "featured": true,
+      "id": 0
+    },
+    {
+      "id": 1,
+      "title": "GeForce RTX 3080 Ti",
+      "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
+      "price": 2109,
+      "productType": "IN STOCK",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "AMD Radeon RX 5500",
+      "imageUrl": "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/04/AMD-Radeon-RX-5500-Blogroll.jpg",
+      "price": 1099,
+      "productType": "TOP",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Updated item",
+      "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
+      "price": 999,
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Item 2",
+      "imageUrl": "https://friendofthesea.org/wp-content/uploads/the-test-fun-for-friends-screenshot.png",
+      "price": 499,
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "Item 2",
+      "imageUrl": "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/04/AMD-Radeon-RX-5500-Blogroll.jpg",
+      "price": 499,
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Item 3",
+      "imageUrl": "https://friendofthesea.org/wp-content/uploads/the-test-fun-for-friends-screenshot.png",
+      "price": 499,
+      "featured": false
+    },
+    {
+      "title": "Item 4=5",
+      "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
+      "price": 209,
+      "featured": true,
+      "id": 7
+    }
+  ]
 }
