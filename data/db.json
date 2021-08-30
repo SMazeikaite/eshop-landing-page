@@ -3,14 +3,14 @@
     {
       "title": "GeForce RTX 2070 SUPER",
       "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
-      "price": "109",
+      "price": 2010,
       "featured": true,
       "id": 0
     },
     {
       "title": "GeForce RTX 3080 Ti",
       "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
-      "price": "2109",
+      "price": 1999,
       "featured": true,
       "id": 1
     },
@@ -18,7 +18,7 @@
       "id": 2,
       "title": "AMD Radeon RX 5500",
       "imageUrl": "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/04/AMD-Radeon-RX-5500-Blogroll.jpg",
-      "price": 1099,
+      "price": 1599,
       "productType": "TOP",
       "featured": false
     },
@@ -32,8 +32,8 @@
     {
       "title": "EVGA GeForce RTX 2080",
       "imageUrl": "https://www.newegg.com/insider/wp-content/uploads/2018/11/abs_2080build_21.jpg",
-      "price": "512",
-      "featured": true,
+      "price": 1499,
+      "featured": false,
       "id": 4
     },
     {
@@ -46,14 +46,14 @@
     {
       "title": "Radeon VII",
       "imageUrl": "https://i.pcmag.com/imagery/roundups/07nwyhDaNJHr3Jojh0HcO6o-97.fit_lim.size_768x.jpg",
-      "price": "499",
+      "price": 879,
       "featured": false,
       "id": 6
     },
     {
       "title": "Item 4=5",
       "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
-      "price": 209,
+      "price": 599,
       "featured": false,
       "id": 7
     }

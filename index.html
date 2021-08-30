@@ -27,8 +27,12 @@
 
     <div class="shop-item-toolbar">
         <button class="btn btn-add" onclick="openModal(true)"> <i class="fas fa-plus"></i> &nbsp; Add new item</button>
-        <button onclick="onSortClick('price')"> Sort by price 🠗 </button>
+        <button class="btn btn-sort" onclick="onSortClick('price')"></button>
     </div>
+
+    <form class="search">
+        <input type="text" name="query" placeholder="search for item">
+    </form>
     <main class="grid"></main>
 
     <div id="modal" class="modal">
@@ -53,8 +57,11 @@
                 <button class="btn btn-add btn-submit center" type="submit">Submit</button>
             </form>
         </div>
-
     </div>
+
+    <footer>
+        <span class="footer-text">Author: <a href="https://github.com/SMazeikaite"> https://github.com/SMazeikaite </a></span>
+    </footer>
 
     <script src="./js/scripts.js"></script>
 </body>
