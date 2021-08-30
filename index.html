@@ -4,6 +4,8 @@
 <head>
     <title>Homepage | Logoipsum</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
 </head>
 
 <body>
@@ -24,36 +26,36 @@
     </div>
 
     <div class="shop-item-toolbar">
-        <button class="btn btn-add" onclick="openModal(true)"> Add item</button>
+        <button class="btn btn-add" onclick="openModal(true)"> <i class="fas fa-plus"></i> &nbsp; Add new item</button>
         <button onclick="onSortClick('price')"> Sort by price 🠗 </button>
     </div>
     <main class="grid"></main>
 
     <div id="modal" class="modal">
         <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3 class="text-center">Add new item:</h3>
-        <form>
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title"><br>
+            <span class="close">&times;</span>
+            <h3 class="text-center">Add new item</h3>
+            <form>
+                <label for="title">Title</label><br>
+                <input type="text" id="title" name="title"><br>
 
-            <label for="imageUrl">Image URL:</label><br>
-            <input type="text" id="imageUrl" name="imageUrl"><br>
+                <label for="imageUrl">Image URL</label><br>
+                <input type="text" id="imageUrl" name="imageUrl"><br>
 
-            <label for="price">Price:</label><br>
-            <input type="number" id="price" name="price"><br><br>
+                <label for="price">Price €</label><br>
+                <input type="number" id="price" name="price"><br><br>
 
-            <div>
-                <label for="featured">Feature in carousel:</label>
-                <input type="checkbox" id="featured" name="featured">
-            </div>
+                <div>
+                    <label for="featured">Feature in carousel</label>
+                    <input type="checkbox" id="featured" name="featured">
+                </div>
 
-            <button class="btn btn-add center" type="submit">Submit</button>
-          </form> 
+                <button class="btn btn-add btn-submit center" type="submit">Submit</button>
+            </form>
         </div>
-    
+
     </div>
-  
+
     <script src="./js/scripts.js"></script>
 </body>
 

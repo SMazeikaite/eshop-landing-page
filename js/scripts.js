@@ -14,7 +14,6 @@ const renderShop = async(sortBy) => {
     if (sortBy && orderByAsc) {
         uri += `?_sort=${sortBy}&_order=${orderByAsc}`;
     }
-    debugger;
     shop = await fetch(uri).then(res => res.json());
 
     // Render carousel
@@ -38,14 +37,15 @@ const renderShop = async(sortBy) => {
 
     let shopTemplate = '';
     shop.forEach((product) => {
-        const featureBtnTitle = product.featured ? 'Unfeature' : 'Feature';
+        const featureBtnIcon = product.featured ? 'fas fa-eye-slash' : 'fas fa-eye';
         shopTemplate += `
             <figure>
                 <img src="${product.imageUrl}" alt="Image of ${product.title}">
-                <figcaption><strong>${product.title}</strong> <span class="price">€ ${product.price}</span></figcaption>
-                <button class="btn btn-update" data-id="${product.id}"> Edit </button>
-                <button class="btn btn-feature" onclick="featureInCarousel(${product.id}, ${product.featured})"> ${featureBtnTitle} </button>
-                <button class="btn btn-delete" onclick="deleteShopItem(${product.id})" style="float:right;"> Delete </button>
+                <p class="float-right price-tag">€ ${product.price}</p>
+                <figcaption>${product.title}</figcaption>
+                <button class="btn btn-update" data-id="${product.id}">  &nbsp; <i class="fas fa-pencil-alt"></i> Edit  &nbsp;</button>
+                <button class="btn btn-feature" onclick="featureInCarousel(${product.id}, ${product.featured})"> <i class="${featureBtnIcon}"></i> </button>
+                <button class="btn btn-delete float-right" onclick="deleteShopItem(${product.id})"> <i class="fas fa-trash-alt"></i></button>
             </figure>
         `
     });
@@ -57,7 +57,9 @@ const openModal = (isNew, product = {}) => {
     modal.isNew = isNew;
     modal.editId = product.id;
 
-    if (!isNew) {
+    if (isNew) {
+        form.reset();
+    } else {
         form.title.value = product.title;
         form.price.value = product.price;
         form.imageUrl.value = product.imageUrl;
@@ -66,14 +68,14 @@ const openModal = (isNew, product = {}) => {
 }
 
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.className == 'btn btn-update'){
+document.addEventListener('click', function(e) {
+    if (e.target && e.target.className == 'btn btn-update') {
         let product = shop.find(s => s.id == e.target.getAttribute('data-id'));
         openModal(false, product);
-     }
- });
+    }
+});
 
-const createNewShopItem = async () => {
+const createNewShopItem = async() => {
     const item = {
         title: form.title.value,
         imageUrl: form.imageUrl.value,
@@ -90,7 +92,7 @@ const createNewShopItem = async () => {
     renderShop();
 }
 
-const updateShopItem = async (id) => {
+const updateShopItem = async(id) => {
     const item = {
         title: form.title.value,
         imageUrl: form.imageUrl.value,
@@ -103,12 +105,12 @@ const updateShopItem = async (id) => {
         body: JSON.stringify(item),
         headers: { 'Content-type': 'application/json' }
     });
-    
+
     modal.style.display = "none";
     renderShop();
 }
 
-const featureInCarousel = async (id, isFeatured) => {
+const featureInCarousel = async(id, isFeatured) => {
     const item = {
         featured: !isFeatured
     }
@@ -118,15 +120,15 @@ const featureInCarousel = async (id, isFeatured) => {
         body: JSON.stringify(item),
         headers: { 'Content-type': 'application/json' }
     });
-    
+
     renderShop();
 }
 
-const deleteShopItem = async( id) => {
+const deleteShopItem = async(id) => {
     await fetch(`http://localhost:3000/products/${id}`, {
         method: 'DELETE'
     });
-    
+
     renderShop();
 }
 
@@ -142,7 +144,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.onclick = function(event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+        modal.style.display = "none";
     }
 }
 

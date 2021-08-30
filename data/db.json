@@ -1,19 +1,18 @@
 {
   "products": [
     {
-      "title": "Testas7901",
+      "title": "GeForce RTX 2070 SUPER",
       "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
       "price": "109",
       "featured": true,
       "id": 0
     },
     {
-      "id": 1,
       "title": "GeForce RTX 3080 Ti",
       "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
-      "price": 2109,
-      "productType": "IN STOCK",
-      "featured": true
+      "price": "2109",
+      "featured": true,
+      "id": 1
     },
     {
       "id": 2,
@@ -21,7 +20,7 @@
       "imageUrl": "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/04/AMD-Radeon-RX-5500-Blogroll.jpg",
       "price": 1099,
       "productType": "TOP",
-      "featured": true
+      "featured": false
     },
     {
       "id": 3,
@@ -31,11 +30,11 @@
       "featured": false
     },
     {
-      "id": 4,
-      "title": "Item 2",
-      "imageUrl": "https://friendofthesea.org/wp-content/uploads/the-test-fun-for-friends-screenshot.png",
-      "price": 499,
-      "featured": false
+      "title": "EVGA GeForce RTX 2080",
+      "imageUrl": "https://www.newegg.com/insider/wp-content/uploads/2018/11/abs_2080build_21.jpg",
+      "price": "512",
+      "featured": true,
+      "id": 4
     },
     {
       "id": 5,
@@ -45,17 +44,17 @@
       "featured": false
     },
     {
-      "id": 6,
-      "title": "Item 3",
-      "imageUrl": "https://friendofthesea.org/wp-content/uploads/the-test-fun-for-friends-screenshot.png",
-      "price": 499,
-      "featured": false
+      "title": "Radeon VII",
+      "imageUrl": "https://i.pcmag.com/imagery/roundups/07nwyhDaNJHr3Jojh0HcO6o-97.fit_lim.size_768x.jpg",
+      "price": "499",
+      "featured": false,
+      "id": 6
     },
     {
       "title": "Item 4=5",
       "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
       "price": 209,
-      "featured": true,
+      "featured": false,
       "id": 7
     }
   ]
