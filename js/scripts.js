@@ -4,7 +4,7 @@ const slidesContainer = document.querySelector('.slides-container');
 const shopContainer = document.querySelector('.grid');
 const modal = document.getElementById("modal");
 const closeModal = document.getElementsByClassName("close")[0];
-const form = document.querySelector('form');
+const form = document.querySelector('.item-form');
 const editBtns = document.getElementsByClassName('btn-update');
 const sortBtn = document.getElementsByClassName('btn-sort')[0];
 const searchForm = document.querySelector('.search');
@@ -43,6 +43,7 @@ form.addEventListener('submit', (e) => {
 
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    if (timeout) clearTimeout(timeout);
     renderShop(true, searchForm.query.value.trim());
 });
 
@@ -100,7 +101,7 @@ const renderShop = async(isSorting, searchQuery) => {
                 <button class="btn btn-feature" onclick="featureInCarousel(${product.id}, ${product.featured})">
                     <i class="${featureBtnIcon}"></i>
                 </button>
-                <button class="btn btn-delete float-right" onclick="deleteShopItem(${product.id})">
+                <button class="btn btn-delete float-right" onclick="onDeleteClick(${product.id})">
                     <i class="fas fa-trash-alt"></i>
                 </button>
             </figure>
@@ -109,11 +110,17 @@ const renderShop = async(isSorting, searchQuery) => {
     shopContainer.innerHTML = shopTemplate;
 }
 
+const onDeleteClick = (productId) => {
+    const result = confirm("Do you really want to delete this item?");
+    if (result) {
+        deleteShopItem(productId);
+    }
+}
+
 const openModal = (isNew, product = {}) => {
     modal.style.display = "block";
     modal.isNew = isNew;
     modal.editId = product.id;
-
     if (isNew) {
         form.reset();
     } else {
@@ -188,8 +195,8 @@ const onSortClick = (sortValue) => {
     sortBy = sortValue;
     orderByAsc = !orderByAsc;
     sortBtn.innerHTML = orderByAsc ?
-        `<i class="fas fa-sort-amount-down-alt"></i> Sort by ${sortValue}` :
-        `<i class="fas fa-sort-amount-up-alt"></i> Sort by ${sortValue}`;
+        `<i class="fas fa-sort-amount-up"></i> Sort by ${sortValue}` :
+        `<i class="fas fa-sort-amount-down"></i> Sort by ${sortValue}`;
 
     renderShop(true);
 }
