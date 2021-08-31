@@ -17,16 +17,12 @@ let previousQuery = null;
 
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
-        body.style.overflow = "auto";
-        body.style.marginRight = "0px";
+        onModalClose();
     }
 }
 
 closeModal.onclick = function() {
-    modal.style.display = "none";
-    body.style.overflow = "auto";
-    body.style.marginRight = "0px";
+    onModalClose();
 }
 
 document.addEventListener('click', function(e) {
@@ -67,7 +63,6 @@ searchForm.addEventListener('keyup', (e) => {
         }, 500);
     }
 });
-
 
 const renderShop = async(searchQuery) => {
     let uri = new URL('http://localhost:3000/products');
@@ -187,7 +182,7 @@ const createNewShopItem = async() => {
         headers: { 'Content-type': 'application/json' }
     });
 
-    modal.style.display = "none";
+    onModalClose();
 
     renderShop();
     if (form.featured.checked) renderCarousel();
@@ -207,7 +202,7 @@ const updateShopItem = async(id) => {
         headers: { 'Content-type': 'application/json' }
     });
 
-    modal.style.display = "none";
+    onModalClose();
 
     renderShop();
     if (form.featured.checked) renderCarousel();
@@ -230,6 +225,12 @@ const onSortClick = (sortValue) => {
         `<i class="fas fa-sort-amount-down"></i> Sort by ${sortValue}`;
 
     renderShop();
+}
+
+const onModalClose = () => {
+    modal.style.display = "none";
+    body.style.overflow = "auto";
+    body.style.marginRight = "0px";
 }
 
 const previousSlideBtn = document.getElementsByClassName('previous-slide')[0];
