@@ -1,59 +1,58 @@
 {
   "products": [
     {
-      "title": "GeForce RTX 2070 SUPER",
-      "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
-      "price": 2010,
+      "title": "NVIDIA GeForce RTX 3090",
+      "imageUrl": "https://sm.ign.com/ign_me/review/n/nvidia-gef/nvidia-geforce-rtx-3090-founders-edition-review_qjgz.jpg",
+      "price": 1499,
       "featured": true,
       "id": 0
     },
     {
       "title": "GeForce RTX 3080 Ti",
       "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
-      "price": 1999,
-      "featured": true,
+      "price": 1199,
+      "featured": false,
       "id": 1
     },
     {
-      "id": 2,
-      "title": "AMD Radeon RX 5500",
-      "imageUrl": "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/04/AMD-Radeon-RX-5500-Blogroll.jpg",
-      "price": 1599,
-      "productType": "TOP",
-      "featured": false
-    },
-    {
-      "id": 3,
-      "title": "Updated item",
-      "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
+      "title": "AMD Radeon 6900 XT",
+      "imageUrl": "https://assets.mspimages.in/wp-content/uploads/2020/12/AMD-Radeon-RX-6900-XT.jpg",
       "price": 999,
-      "featured": false
+      "featured": false,
+      "id": 2
     },
     {
-      "title": "EVGA GeForce RTX 2080",
-      "imageUrl": "https://www.newegg.com/insider/wp-content/uploads/2018/11/abs_2080build_21.jpg",
-      "price": 1499,
+      "title": "NVIDIA Titan RTX",
+      "imageUrl": "https://wallpapershome.com/images/wallpapers/nvidia-titan-rtx-3840x2160-graphics-card-4k-20977.jpg",
+      "price": 2499,
+      "featured": true,
+      "id": 3
+    },
+    {
+      "title": "AMD Radeon RX 6800 XT",
+      "imageUrl": "https://i.pcmag.com/imagery/reviews/02QL3dNmJenoAPIgw4n91aZ-1..1605580613.jpg",
+      "price": 649,
       "featured": false,
       "id": 4
     },
     {
-      "id": 5,
-      "title": "Item 2",
-      "imageUrl": "https://oyster.ignimgs.com/wordpress/stg.ign.com/2020/04/AMD-Radeon-RX-5500-Blogroll.jpg",
-      "price": 499,
-      "featured": false
+      "title": "AMD Radeon VII",
+      "imageUrl": "https://www.roadtovr.com/wp-content/uploads/2019/01/amd-radeon-vii.jpg",
+      "price": 699,
+      "featured": false,
+      "id": 5
     },
     {
-      "title": "Radeon VII",
-      "imageUrl": "https://i.pcmag.com/imagery/roundups/07nwyhDaNJHr3Jojh0HcO6o-97.fit_lim.size_768x.jpg",
-      "price": 879,
-      "featured": false,
+      "title": "NVIDIA Titan Xp Collector's Edition",
+      "imageUrl": "https://i.ytimg.com/vi/8MXjvf_pjcI/maxresdefault.jpg",
+      "price": 1199,
+      "featured": true,
       "id": 6
     },
     {
-      "title": "Item 4=5",
-      "imageUrl": "https://cdn.mos.cms.futurecdn.net/B8baPr943ReNzMbJ6ZKRSF.jpg",
-      "price": 599,
+      "title": "NVIDIA GeForce RTX 2080 SUPER",
+      "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
+      "price": 699,
       "featured": false,
       "id": 7
     }

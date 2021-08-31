@@ -1,13 +1,14 @@
 'use strict'
 
-const slidesContainer = document.querySelector('.slides-container');
-const shopContainer = document.querySelector('.grid');
-const modal = document.getElementById("modal");
+const slidesContainer = document.getElementsByClassName('slides-container')[0];
+const shopContainer = document.getElementsByClassName('grid')[0];
+const modal = document.getElementsByClassName("modal")[0];
 const closeModal = document.getElementsByClassName("close")[0];
-const form = document.querySelector('.item-form');
+const form = document.getElementsByClassName('item-form')[0];
 const editBtns = document.getElementsByClassName('btn-update');
 const sortBtn = document.getElementsByClassName('btn-sort')[0];
 const searchForm = document.querySelector('.search');
+const body = document.querySelector('body');
 let shop = null;
 let orderByAsc = true;
 let sortBy = '';
@@ -17,11 +18,13 @@ let previousQuery = null;
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
+        body.style.overflow =  "auto";
     }
 }
 
 closeModal.onclick = function() {
     modal.style.display = "none";
+    body.style.overflow =  "auto";
 }
 
 document.addEventListener('click', function(e) {
@@ -31,62 +34,51 @@ document.addEventListener('click', function(e) {
     }
 });
 
+// after dom loads render the shop, carousel and sort by price
 window.addEventListener('DOMContentLoaded', () => {
     renderShop();
-    onSortClick('price'); // auto sort onload
+    renderCarousel();
+    onSortClick('price');
 });
 
+// on submit either create or update shop item
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     modal.isNew ? createNewShopItem() : updateShopItem(modal.editId);
 });
 
+// on submit search for the item in the shop
 searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     if (timeout) clearTimeout(timeout);
-    renderShop(true, searchForm.query.value.trim());
+    renderShop(searchForm.query.value.trim());
 });
 
+
+// on keyup search for the item in the shop
 searchForm.addEventListener('keyup', (e) => {
     if (timeout) clearTimeout(timeout);
     if (searchForm.query.value.trim() !== previousQuery) {
         timeout = setTimeout(function() {
-            renderShop(true, searchForm.query.value.trim());
+            renderShop(searchForm.query.value.trim());
             previousQuery = searchForm.query.value.trim();
         }, 500);
     }
 });
 
 
-const renderShop = async(isSorting, searchQuery) => {
-    let uri = 'http://localhost:3000/products'
+const renderShop = async(searchQuery) => {
+    let uri = new URL('http://localhost:3000/products');
     if (orderByAsc !== undefined && sortBy) {
         const orderBy = orderByAsc ? 'asc' : 'desc';
-        uri += `?_sort=${sortBy}&_order=${orderBy}`;
+        uri.searchParams.append('_sort', sortBy);
+        uri.searchParams.append('_order', orderBy);
     }
     if (searchQuery) {
-        uri += `&q=${searchQuery}`;
+        uri.searchParams.append('q', searchQuery);
     }
-    shop = await fetch(uri).then(res => res.json());
+    shop = await fetch(uri.toString()).then(res => res.json());
 
-    // Render carousel
-    if (!isSorting) {
-        const slides = shop.filter(s => s.featured).sort();
-        let slidesTemplate = '';
-        slides.forEach((slide, index) => {
-            slidesTemplate += `
-            <div class="${index === 0 ? 'slide visible' : 'slide'}">
-                <img src="${slide.imageUrl}" style="width:100%" alt="slide of ${slide.title}"/>
-                <a href="#" class="slide-title">
-                    <figcaption>${slide.title}</figcaption>
-                </a>
-            </div>
-        `
-        });
-        slidesContainer.innerHTML = slidesTemplate;
-    }
-
-    // Render shop items
     let shopTemplate = '';
     shop.forEach((product) => {
         const featureBtnIcon = product.featured ? 'fas fa-eye-slash' : 'fas fa-eye';
@@ -95,19 +87,44 @@ const renderShop = async(isSorting, searchQuery) => {
                 <img src="${product.imageUrl}" alt="Image of ${product.title}">
                 <p class="float-right price-tag">€ ${product.price}</p>
                 <figcaption>${product.title}</figcaption>
-                <button class="btn btn-update" data-id="${product.id}">
-                    &nbsp;<i class="fas fa-pencil-alt"></i> Edit &nbsp;
-                </button>
-                <button class="btn btn-feature" onclick="featureInCarousel(${product.id}, ${product.featured})">
-                    <i class="${featureBtnIcon}"></i>
-                </button>
-                <button class="btn btn-delete float-right" onclick="onDeleteClick(${product.id})">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
+                <div class="item-tools">
+                    <button class="btn btn-update" data-id="${product.id}">
+                        &nbsp;<i class="fas fa-pencil-alt"></i> Edit &nbsp;
+                    </button>
+                    <button class="btn btn-feature" onclick="featureInCarousel(${product.id}, ${product.featured})">
+                        <i class="${featureBtnIcon}"></i>
+                    </button>
+                    <button class="btn btn-delete" onclick="onDeleteClick(${product.id})">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
             </figure>
         `
     });
     shopContainer.innerHTML = shopTemplate;
+    
+    if (body.style.overflow ===  "hidden") body.style.overflow = "auto";
+}
+
+const renderCarousel = async() => {
+    let uri = new URL('http://localhost:3000/products');
+    uri.searchParams.append('featured', 'true');
+    uri.searchParams.append('sort', 'id');
+    uri.searchParams.append('order', 'asc');
+    let slides = await fetch(uri.toString()).then(res => res.json());
+
+    let slidesTemplate = '';
+    slides.forEach((slide, index) => {
+        slidesTemplate += `
+        <div class="${index === 0 ? 'slide visible' : 'slide'}">
+            <img src="${slide.imageUrl}" style="width:100%" alt="slide of ${slide.title}"/>
+            <a href="#" class="slide-title">
+                <figcaption>${slide.title}</figcaption>
+            </a>
+        </div>
+    `
+    });
+    slidesContainer.innerHTML = slidesTemplate;
 }
 
 const onDeleteClick = (productId) => {
@@ -129,6 +146,8 @@ const openModal = (isNew, product = {}) => {
         form.imageUrl.value = product.imageUrl;
         form.featured.checked = product.featured;
     }
+    // Do not let scroll page when modal is open
+    body.style.overflow =  "hidden";
 }
 
 const featureInCarousel = async(id, isFeatured) => {
@@ -143,6 +162,7 @@ const featureInCarousel = async(id, isFeatured) => {
     });
 
     renderShop();
+    renderCarousel();
 }
 
 
@@ -150,7 +170,8 @@ const createNewShopItem = async() => {
     const item = {
         title: form.title.value,
         imageUrl: form.imageUrl.value,
-        price: Number(form.price.value)
+        price: Number(form.price.value),
+        featured: form.featured.checked
     }
 
     await fetch('http://localhost:3000/products', {
@@ -161,7 +182,8 @@ const createNewShopItem = async() => {
 
     modal.style.display = "none";
 
-    renderShop();
+    renderShop();    
+    if (form.featured.checked) renderCarousel();
 }
 
 const updateShopItem = async(id) => {
@@ -181,6 +203,7 @@ const updateShopItem = async(id) => {
     modal.style.display = "none";
 
     renderShop();
+    if (form.featured.checked) renderCarousel();
 }
 
 const deleteShopItem = async(id) => {
@@ -189,6 +212,7 @@ const deleteShopItem = async(id) => {
     });
 
     renderShop();
+    renderCarousel();
 }
 
 const onSortClick = (sortValue) => {
@@ -198,15 +222,14 @@ const onSortClick = (sortValue) => {
         `<i class="fas fa-sort-amount-up"></i> Sort by ${sortValue}` :
         `<i class="fas fa-sort-amount-down"></i> Sort by ${sortValue}`;
 
-    renderShop(true);
+    renderShop();
 }
 
 const previousSlideBtn = document.getElementsByClassName('previous-slide')[0];
 const nextSlideBtn = document.getElementsByClassName('next-slide')[0];
-let currCard = document.querySelector('.slide.visible');
 
 previousSlideBtn.addEventListener('click', function() {
-    currCard = document.querySelector('.slide.visible');
+    let currCard = document.querySelector('.slide.visible');
     const prevCard = currCard.previousElementSibling ?
         currCard.previousElementSibling :
         document.querySelector('.slides-container').lastElementChild;
@@ -215,7 +238,7 @@ previousSlideBtn.addEventListener('click', function() {
 });
 
 nextSlideBtn.addEventListener('click', function() {
-    currCard = document.querySelector('.slide.visible');
+    let currCard = document.querySelector('.slide.visible');
     const nextCard = currCard.nextElementSibling ?
         currCard.nextElementSibling :
         document.querySelector('.slides-container').firstElementChild;

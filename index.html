@@ -9,56 +9,57 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li class="logo">
-                <img src="logoipsum-logo-30.svg" />
-            </li>
-            <li><a href="#search">Search</a></li>
-            <li><a href="#login" class="log-in">Log in</a></li>
-        </ul>
-    </nav>
+    <div class="wrapper">
+        <nav>
+            <ul>
+                <li class="logo">
+                    <img src="logoipsum-logo-30.svg" />
+                </li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#login" class="log-in">Log in</a></li>
+            </ul>
+        </nav>
 
-    <div class="carousel">
-        <section class="slides-container"></section>
-        <a class="previous-slide">&#10096;</a>
-        <a class="next-slide">&#10097;</a>
-    </div>
+        <div class="carousel">
+            <section class="slides-container"></section>
+            <a class="previous-slide noselect">&#10096;</a>
+            <a class="next-slide noselect">&#10097;</a>
+        </div>
 
-    <div class="shop-item-toolbar">
-        <button class="btn btn-add" onclick="openModal(true)"> <i class="fas fa-plus"></i> &nbsp; Add new item</button>
-        <button class="btn btn-sort" onclick="onSortClick('price')"></button>
-    </div>
+        <div class="shop-item-toolbar">
+            <button class="btn btn-add" onclick="openModal(true)"> <i class="fas fa-plus"></i> &nbsp; Add new item</button>
+            <button class="btn btn-sort btn-update" onclick="onSortClick('price')"></button>
+        </div>
 
-    <form class="search">
-        <input type="text" name="query" placeholder="search for item">
-    </form>
-    <main class="grid"></main>
+        <form class="search">
+            <input type="text" name="query" placeholder="search for item">
+        </form>
+        <main class="grid"></main>
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3 class="text-center">Add new item</h3>
-            <form class="item-form">
-                <label for="title">Title</label><br>
-                <input type="text" id="title" name="title"><br>
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 class="text-center">Add new item</h3>
+                <form class="item-form">
+                    <label for="title">Title</label><br>
+                    <input type="text" id="title" name="title"><br>
 
-                <label for="imageUrl">Image URL</label><br>
-                <input type="text" id="imageUrl" name="imageUrl"><br>
+                    <label for="imageUrl">Image URL</label><br>
+                    <input type="text" id="imageUrl" name="imageUrl"><br>
 
-                <label for="price">Price €</label><br>
-                <input type="number" id="price" name="price"><br><br>
+                    <label for="price">Price €</label><br>
+                    <input type="number" id="price" name="price"><br><br>
 
-                <div>
-                    <label for="featured">Feature in carousel</label>
-                    <input type="checkbox" id="featured" name="featured">
-                </div>
+                    <div>
+                        <label for="featured">Feature in carousel</label>
+                        <input type="checkbox" id="featured" name="featured">
+                    </div>
 
-                <button class="btn btn-add btn-submit center" type="submit">Submit</button>
-            </form>
+                    <button class="btn btn-add btn-submit center" type="submit">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
-
     <footer>
         <span class="footer-text">Author: <a href="https://github.com/SMazeikaite"> https://github.com/SMazeikaite </a></span>
     </footer>
