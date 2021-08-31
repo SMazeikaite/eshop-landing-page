@@ -5,7 +5,7 @@
     --spacer-1: 0.25rem;
     --main-color: #cbeb6d;
     --secondary-color: #333;
-    --btn-add-color: #77b900;
+    --btn-add-color: #98ce34;
     --btn-add-light-color: #ddefbf;
     --btn-delete-color: #ff6f65;
     --btn-delete-light-color: #ffeaea;
@@ -59,6 +59,7 @@ body {
     -ms-user-select: none;
     user-select: none;
 }
+
 
 /* Carousel */
 
@@ -181,7 +182,8 @@ nav li a:hover {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 0.25fr));
+    justify-content: center;
     padding: var(--spacer-3);
     margin-top: 20px;
 }
@@ -295,7 +297,7 @@ nav li a:hover {
 
 .btn-add {
     border: 2px solid var(--btn-add-color);
-    background-color: var(--main-color);
+    background-color: var(--btn-feature-light-color);
 }
 
 .btn-add:hover {
@@ -358,7 +360,7 @@ input[type=text],
 input[type=number],
 select {
     width: 100%;
-    padding: 12px 20px;
+    padding: 10px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid var(--gray-20);
@@ -379,7 +381,7 @@ input[type=number] {
 }
 
 input:focus:not(input[type=checkbox]) {
-    box-shadow: 0 0 0 1pt var(--main-color);
+    box-shadow: 0 0 0 1px var(--main-color);
     outline: none;
 }
 

@@ -19,12 +19,14 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
         body.style.overflow = "auto";
+        body.style.marginRight = "0px";
     }
 }
 
 closeModal.onclick = function() {
     modal.style.display = "none";
     body.style.overflow = "auto";
+    body.style.marginRight = "0px";
 }
 
 document.addEventListener('click', function(e) {
@@ -76,6 +78,8 @@ const renderShop = async(searchQuery) => {
     }
     if (searchQuery) {
         uri.searchParams.append('q', searchQuery);
+    } else if (searchQuery === undefined && previousQuery) {
+        uri.searchParams.append('q', previousQuery);
     }
     shop = await fetch(uri.toString()).then(res => res.json());
 
@@ -146,8 +150,11 @@ const openModal = (isNew, product = {}) => {
         form.imageUrl.value = product.imageUrl;
         form.featured.checked = product.featured;
     }
+    let scrollbarWidth = (window.innerWidth - document.body.clientWidth) + 'px';
     // Do not let scroll page when modal is open
     body.style.overflow = "hidden";
+    // Do not shift page when modal is open
+    body.style.marginRight = scrollbarWidth;
 }
 
 const featureInCarousel = async(id, isFeatured) => {
