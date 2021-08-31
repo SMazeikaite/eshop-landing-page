@@ -1,3 +1,13 @@
+:root {
+    --spacer-4: 2rem;
+    --spacer-3: 1rem;
+    --spacer-2: 0.5rem;
+    --spacer-1: 0.25rem;
+    --main-color: #cbeb6d;
+    --secondary-color: #333;
+    --half-opacity-black: rgba(0, 0, 0, 0.5);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -9,10 +19,6 @@ body {
 
 
 /* Reusable  */
-
-.main-color {
-    color: #cbeb6d;
-}
 
 .text-center {
     text-align: center;
@@ -57,7 +63,7 @@ img {
     position: absolute;
     top: 50%;
     width: auto;
-    padding: 16px;
+    padding: var(--spacer-3);
     margin-top: -22px;
     color: white;
     font-weight: bold;
@@ -73,8 +79,8 @@ img {
 
 .previous-slide:hover,
 .next-slide:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: rgb(233, 255, 181);
+    background-color: var(--half-opacity-black);
+    color: var(--main-color);
     transition: 0.6s ease;
 }
 
@@ -92,7 +98,7 @@ img {
 .slide-title figcaption {
     position: inherit;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--half-opacity-black);
     padding: 10px;
     width: 100%;
 }
@@ -107,7 +113,7 @@ nav {
 nav ul {
     margin: 0;
     padding: 0;
-    background-color: #333;
+    background-color: var(--secondary-color);
     text-align: right;
 }
 
@@ -137,20 +143,24 @@ nav li a:hover:not(.active) {
     background-color: #111;
 }
 
+.log-in {
+    color: var(--main-color);
+}
+
 
 /* Products grid */
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    padding: 15px;
+    padding: var(--spacer-3);
     margin-top: 20px;
 }
 
 .grid figure {
     position: relative;
     margin: 3%;
-    padding: 5%;
+    padding: var(--spacer-4);
     transition: 0.3s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -168,7 +178,7 @@ nav li a:hover:not(.active) {
 }
 
 .grid figure figcaption {
-    padding: 20px 0;
+    padding: var(--spacer-3) 0;
     width: 80%;
     margin: 0 auto;
     text-align: center;
@@ -188,7 +198,7 @@ nav li a:hover:not(.active) {
 }
 
 .shop-item-toolbar button {
-    padding: 10px;
+    padding: var(--spacer-2);
     margin: 20px;
 }
 
@@ -341,13 +351,13 @@ input[type=number] {
 /* Footer */
 
 footer {
-    background-color: #333;
+    background-color: var(--secondary-color);
     position: relative;
     height: 40px;
 }
 
 .footer-text {
-    padding-left: 10px;
+    padding-left: var(--spacer-4);
     color: white;
     margin: 0;
     position: absolute;
@@ -358,5 +368,5 @@ footer {
 }
 
 footer a {
-    color: #cbeb6d;
+    color: var(--main-color);
 }
