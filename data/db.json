@@ -4,7 +4,7 @@
       "title": "NVIDIA GeForce RTX 3090",
       "imageUrl": "https://sm.ign.com/ign_me/review/n/nvidia-gef/nvidia-geforce-rtx-3090-founders-edition-review_qjgz.jpg",
       "price": 1499,
-      "featured": true,
+      "featured": false,
       "id": 0
     },
     {
@@ -53,7 +53,7 @@
       "title": "NVIDIA GeForce RTX 2080 SUPER",
       "imageUrl": "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/graphic-cards/rtx-2070-super/geforce-rtx-2070-super-og-1200x630.jpg",
       "price": 699,
-      "featured": false,
+      "featured": true,
       "id": 7
     }
   ]

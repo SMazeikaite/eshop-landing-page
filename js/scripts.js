@@ -18,13 +18,13 @@ let previousQuery = null;
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
-        body.style.overflow =  "auto";
+        body.style.overflow = "auto";
     }
 }
 
 closeModal.onclick = function() {
     modal.style.display = "none";
-    body.style.overflow =  "auto";
+    body.style.overflow = "auto";
 }
 
 document.addEventListener('click', function(e) {
@@ -102,15 +102,15 @@ const renderShop = async(searchQuery) => {
         `
     });
     shopContainer.innerHTML = shopTemplate;
-    
-    if (body.style.overflow ===  "hidden") body.style.overflow = "auto";
+
+    if (body.style.overflow === "hidden") body.style.overflow = "auto";
 }
 
 const renderCarousel = async() => {
     let uri = new URL('http://localhost:3000/products');
     uri.searchParams.append('featured', 'true');
-    uri.searchParams.append('sort', 'id');
-    uri.searchParams.append('order', 'asc');
+    uri.searchParams.append('_sort', 'price');
+    uri.searchParams.append('_order', 'desc');
     let slides = await fetch(uri.toString()).then(res => res.json());
 
     let slidesTemplate = '';
@@ -147,7 +147,7 @@ const openModal = (isNew, product = {}) => {
         form.featured.checked = product.featured;
     }
     // Do not let scroll page when modal is open
-    body.style.overflow =  "hidden";
+    body.style.overflow = "hidden";
 }
 
 const featureInCarousel = async(id, isFeatured) => {
@@ -182,7 +182,7 @@ const createNewShopItem = async() => {
 
     modal.style.display = "none";
 
-    renderShop();    
+    renderShop();
     if (form.featured.checked) renderCarousel();
 }
 
